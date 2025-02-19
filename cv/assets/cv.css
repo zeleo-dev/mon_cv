@@ -1,0 +1,239 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    overflow: scroll;
+    background: linear-gradient(326deg,#20B2AA 20%, rgba(0,1,10,1) 80%);
+    background-size:cover;
+    background-attachment:fixed;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: black;
+    display: flex;
+    flex-direction:column;   
+    align-items: center;
+}
+header{
+    margin:20px;
+    color:#a2c4c5;
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    
+}
+.contact {
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 15vh;
+    align-items: center;
+}
+
+#mon_contact{
+    
+    text-decoration: none;
+    color:#a2c4c5;
+    font-size:1.25rem;
+}
+
+#mon_contact:hover{
+    color:#FFD700;
+    margin:2px;
+
+}
+
+
+.contact p{
+    padding-top: 50px;
+    font-size:1.25rem;
+    color:#e79d12;
+    
+}
+h1 {
+    font-size: 3rem;
+}
+
+
+
+#card-container{
+    justify-content: center;
+    margin-top: 80px;
+    display: flex;
+    flex-wrap: wrap;
+ 
+}
+.container {
+    color:#FFD700; 
+    margin:10px ;
+    width: 250px;
+    height: 320px;
+    perspective: 1000px; /* Ajout de perspective pour l'effet 3D */
+
+}
+
+.container:hover > .card {
+    cursor: pointer;
+    transform: rotateY(180deg);
+}
+
+.card {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    transition: transform 1s ease;
+    transform-style: preserve-3d;
+}
+
+.front, 
+.back {
+    height: 100%;
+    width: 100%;    
+    box-shadow: 0 0 5px #FFD700;
+    border-radius: 1rem;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    backface-visibility: hidden;
+}
+
+.front {
+    overflow: hidden;
+    z-index: 1;
+    transform:rotate(0deg);
+}
+
+.back {
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.466);
+    color:#FFD700;
+    gap: 5rem;
+    transform: rotateY(180deg); /* Cache la face arrière par défaut */
+}
+
+/*formations*/
+#parcours {
+   margin: 50px;
+    padding: 20px;
+}
+
+.parcours-container {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;    
+    margin: auto;
+}
+
+.parcours-item {
+    background: #a2c4c5;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 5px 3px 3px #FFD700;
+    width: 100%;
+    text-align: left;
+}
+.title{
+    color:#FFD700;
+}
+h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #a2c4c5;
+}
+
+h3 {
+    font-size: 1.3rem;
+}
+
+.parcours-item p {
+    font-size: 1rem;
+    color:#151818;
+}
+
+/*nuage de mots*/
+
+#word-cloud {
+    text-align: center;
+    margin: 50px auto;
+    max-width: 80%;
+}
+
+#word-cloud h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: #a2c4c5;
+    margin-bottom: 20px;
+}
+
+/* Conteneur du nuage */
+.word-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;  
+    gap: 15px;
+    padding: 20px;
+}
+
+/* Style des mots */
+.word-cloud span {
+    display: inline-block;
+    padding: 8px 15px;
+    border-radius: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+/* Taille et couleur des mots */
+.big {
+    font-size: 2rem;
+    color: #c4bb8b;
+    background: rgba(230, 226, 209, 0.2);
+        transform: rotate(-25deg);
+}
+
+.medium {
+    font-size: 1.5rem;
+    color: #10ad32;
+    background: rgba(162, 196, 197, 0.2);
+        transform: rotate(20deg);
+}
+
+.small {
+    font-size: 1.2rem;
+    color: #b48f27;
+    background: rgba(32, 178, 170, 0.2);
+    transform: rotate(40deg);
+}
+
+/* Effet au survol */
+.word-cloud span:hover {
+    transform: scale(1.1);
+    background: rgba(255, 215, 0, 0.5);
+}
+
+/*responsive*/
+@media (min-width:767px){
+    .container:hover .card{
+        transform:rotateY(180deg);
+    }
+}
+
+@media(max-width:767px){
+    .card.flipped{
+        transform:rotateY(180deg);
+    }
+}
+@media(max-width:767px){
+    .parcours-container{
+        flex-wrap: wrap;
+    }
+}
